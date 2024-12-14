@@ -27,138 +27,20 @@ namespace UPRO.View
         public string FilePath;
         public int PatchCount;
 
+        /// <summary>
+        /// 생성자
+        /// </summary>
         public UPRO()
         {
             InitializeComponent();
-            this.Loaded += URPO_Loaded;
+            this.Loaded += URPO_Loaded; // Load 이벤트 연결
             BtnApply.IsEnabled = false;
             BtnRecommended.IsEnabled = false;
             BtnLoadProfile.IsEnabled = false;
             BtnSaveProfile.IsEnabled = false;
         }
 
-        private async void URPO_Loaded(object sender, RoutedEventArgs e)
-        {
-            await Task.Delay(100);
-            PopupWindow popup = new PopupWindow
-            {
-                Owner = this, 
-                WindowStartupLocation = WindowStartupLocation.CenterOwner // 부모 창 기준으로 중앙에 띄움
-            };
-            popup.ShowDialog(); // 모달 팝업 창 실행
-        }
-
-
-        public void ReadItems()
-        {
-            Items = new ObservableCollection<Item>
-            {
-                new Item { Id = 0, Recommend = true, Group = 0, IsToggled = 0, Name = "@ Bug Fix(Recommended)", OnToggle = () => FixChatAtBugFix(0,"@ Bug Fix") },
-                new Item { Id = 1, Recommend = false, Group = 0, IsToggled = 0, Name = "Add Close Button", OnToggle = () => AddCloseButton(1,"Add Close Button") },
-                new Item { Id = 2, Recommend = false, Group = 0, IsToggled = 0, Name = "Allow Space In Guild Name", OnToggle = () => AllowSpaceInGuildName(2,"Allow Space In Guild Name") },
-                new Item { Id = 3, Recommend = false, Group = 1, IsToggled = 0, Name = "Chat Flood Allow", OnToggle = () => ChatFloodRemoveLimit(3,"Chat Flood Allow") },
-                new Item { Id = 4, Recommend = false, Group = 1, IsToggled = 0, Name = "Chat Flood Remove Limit", OnToggle = () => ChatFloodRemoveLimit(4,"Chat Flood Remove Limit") },
-                new Item { Id = 5, Recommend = false, Group = 0, IsToggled = 0, Name = "Custom Window Title", OnToggle = () => CustomWindowTitle(5, "Custom Window Title") }, // 0x660
-                 new Item { Id = 6, Recommend = false, Group = 0, IsToggled = 0, Name = "Change MVP Hp Bar Size", OnToggle = () => ChangeBossHpBarSize(6, "Change MVP Hp Bar Size") }, //0xB00
-                new Item { Id = 7, Recommend = false, Group = 4, IsToggled = 0, Name = "Change Walk Delay", OnToggle = () => DisableWalkDelay(7,"Change Walk Delay") },
-                new Item { Id = 8, Recommend = false, Group = 4, IsToggled = 0, Name = "Disable Walk Delay", OnToggle = () => DisableWalkDelay(8,"Disable Walk Delay") },
-                new Item { Id = 9, Recommend = true, Group = 0, IsToggled = 0, Name = "Disable 1rag1 Params(Recommended)", OnToggle = () => Disable1rag1Params(9,"Disable 1rag1 Params") },
-                new Item { Id = 10, Recommend = false, Group = 0, IsToggled = 0, Name = "Disable 4Letter Character Limit", OnToggle = () => Disable4LetterLimit(10,"Disable 4Letter Character Limit") },
-                new Item { Id = 11, Recommend = false, Group = 0, IsToggled = 0, Name = "Disable 4Letter Password Limit", OnToggle = () => Disable4LetterLimit(11,"Disable 4Letter Password Limit") },
-                new Item { Id = 12, Recommend = false, Group = 0, IsToggled = 0, Name = "Disable 4Letter UserName Limit", OnToggle = () => Disable4LetterLimit(12,"Disable 4Letter UserName Limit") },
-                new Item { Id = 13, Recommend = true, Group = 0, IsToggled = 0, Name = "Disalbe Filename Check(Recommended)", OnToggle = () => DisableFilenameCHeck(13,"Disalbe Filename Check") },
-                new Item { Id = 14, Recommend = false, Group = 0, IsToggled = 0, Name = "Disable Indoor RSW", OnToggle = () => DisableIndoorRSW(14,"Disable Indoor RSW") },
-                new Item { Id = 15, Recommend = false, Group = 0, IsToggled = 0, Name = "Disalbe Swear Filter", OnToggle = () => DisableSwearFilter(15,"Disalbe Swear Filter") },
-                new Item { Id = 16, Recommend = false, Group = 0, IsToggled = 0, Name = "Enable 44khz Audio", OnToggle = () => Enable44khzAudio(16,"Enable 44khz Audio") },
-                new Item { Id = 17, Recommend = false, Group = 0, IsToggled = 0, Name = "Enable DNS Suport", OnToggle = () => EnableDNSSuport(17,"Enable DNS Suport") }, // 0x800
-                new Item { Id = 18, Recommend = true, Group = 0, IsToggled = 0, Name = "Enable Multiple GRF(Recommended)", OnToggle = () => EnableMultipleGRF(18,"Enable Multiple GRF") }, //0x700
-                new Item { Id = 19, Recommend = false, Group = 2, IsToggled = 0, Name = "Fix Camera Angles(Custom)", OnToggle = () => FixCameraAngles(19,"Fix Camera Angles(Custom") },
-                new Item { Id = 20, Recommend = false, Group = 2, IsToggled = 0, Name = "Fix Camera Angles(Full)", OnToggle = () => FixCameraAngles(20,"Fix Camera Angles(Full") },
-                new Item { Id = 21, Recommend = false, Group = 2, IsToggled = 0, Name = "Fix Camera Angles(Less)", OnToggle = () => FixCameraAngles(21,"Fix Camera Angles(Less)") },
-                new Item { Id = 22, Recommend = false, Group = 2, IsToggled = 0, Name = "Fix Camera Angles(Recommended)", OnToggle = () => FixCameraAngles(22,"Fix Camera Angles(Recommended)") },
-                new Item { Id = 23, Recommend = false, Group = 0, IsToggled = 0, Name = "Fix NPC Dialog Scroll", OnToggle = () => FixNpcDialogScroll(23,"Fix NPC Dialog Scroll") },
-                new Item { Id = 24, Recommend = false, Group = 0, IsToggled = 0, Name = "Increase Map Quality", OnToggle = () => IncreaseMapQuality(24,"Increase Map Quality") },
-                new Item { Id = 25, Recommend = false, Group = 3, IsToggled = 0, Name = "Increase Zoom Out 25%", OnToggle = () => IncreaseZoomOut(25, "Increase Zoom Out 25%") },
-                new Item { Id = 26, Recommend = false, Group = 3, IsToggled = 0, Name = "Increase Zoom Out 50%", OnToggle = () => IncreaseZoomOut(26, "Increase Zoom Out 50%") },
-                new Item { Id = 27, Recommend = false, Group = 3, IsToggled = 0, Name = "Increase Zoom Out 75%", OnToggle = () => IncreaseZoomOut(27, "Increase Zoom Out 75%") },
-                new Item { Id = 28, Recommend = false, Group = 3, IsToggled = 0, Name = "Increase Zoom Out Max", OnToggle = () => IncreaseZoomOut(28, "Increase Zoom Out Max") },
-                new Item { Id = 29, Recommend = false, Group = 3, IsToggled = 0, Name = "Increase Zoom Out Custom", OnToggle = () => IncreaseZoomOut(29, "Increase Zoom Out Custom") },
-                new Item { Id = 30, Recommend = true, Group = 0, IsToggled = 0, Name = "Read Data Folder First(Recommended)", OnToggle = () => ReadDataFolderFirst(30,"Read Data Folder First") },
-                new Item { Id = 31, Recommend = true, Group = 0, IsToggled = 0, Name = "Restore Clientinfo.xml & No Hard Coded Address & Port(Recommended)", OnToggle = () => RestoreClientinfoxmlNoHardCodedAddress(31,"Restore Clientinfo.xml & No Hard Coded Address & Port") }, //0x100
-                new Item { Id = 32, Recommend = true, Group = 0, IsToggled = 0, Name = "Restore Old Login Packet(Recommended)", OnToggle = () => RestoreOldLoginPacket(32,"Restore Old Login Packet") },
-                new Item { Id = 33, Recommend = false, Group = 0, IsToggled = 0, Name = "Restore Roulette", OnToggle = () => RestoreRoulette(33,"Restore Roulette") }, // 0x900
-                new Item { Id = 34, Recommend = true, Group = 0, IsToggled = 0, Name = "Remove OTP Login(Recommended)", OnToggle = () => RemoveOTPLogin(34,"Restore Old Login Packet") },
-                new Item { Id = 35, Recommend = false, Group = 0, IsToggled = 0, Name = "Show Replay Button", OnToggle = () => ShowReplayButton(35,"Show Replay Button") }, // 0xA00
-                new Item { Id = 36, Recommend = false, Group = 0, IsToggled = 0, Name = "Skip License Screen", OnToggle = () => SkipLicenseScreen(36, "Skip License Screen") },
-                new Item { Id = 37, Recommend = false, Group = 0, IsToggled = 0, Name = "Set Hardcoded Server ip", OnToggle = () => SetHardcodedServerip(37, "Set Hardcoded Server ip") },
-                new Item { Id = 38, Recommend = true, Group = 0, IsToggled = 0, Name = "Disable Help Message", OnToggle = () => DisableHelpMsg(38,"Disable Help Message") }
-            };
-
-            //var sortedItems = Items.OrderBy(item => item.Name).ToList();
-            filteredItems = new ObservableCollection<Item>(Items);
-            DgdItem.ItemsSource = filteredItems;
-
-            PatchCount = 0;
-            TxbPatches.Text = "0";
-        }
-
-        private void ShowErrorWindow(string title, string message)
-        {
-            var parentWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
-            var errorWindow = new ErrorWindow(title, message)
-            {
-                Owner = parentWindow
-            };
-            errorWindow.ShowDialog();
-        }
-
-        private void InformWindow(string message)
-        {
-            var parentWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
-            var informWindow = new InformWindow(message)
-            {
-                Owner = parentWindow
-            };
-            informWindow.ShowDialog();
-        }
-
-
-        private string OneTextBoxWindow(string title, string message, string val)
-        {
-            var parentWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
-            var oneTextBox = new OneTextBox(title, message, val)
-            {
-                Owner = parentWindow
-            };
-            if (oneTextBox.ShowDialog() == true)
-            {
-                return oneTextBox.Result;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        private (string, string) TwoTextBoxWindow(string title, string message, string target1, string target2, string val1, string val2)
-        {
-            var parentWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
-            var twoTextBox = new TwoTextBox(title, message,target1, target2, val1, val2)
-            {
-                Owner = parentWindow
-            };
-            if (twoTextBox.ShowDialog() == true)
-            {
-                return (twoTextBox.Result1, twoTextBox.Result2);
-            }
-            else
-            {
-                return (null,null);
-            }
-
-        }
-
-
+        #region Patch Method
         private bool FixChatAtBugFix(int id, string name)
         {
             var code = "74 04 " +       // je short
@@ -391,7 +273,6 @@ namespace UPRO.View
             Items[id].PatchList = Patchs;
             return true;
         }
-
 
         private bool ChatFloodRemoveLimit(int id, string name)
         {
@@ -2273,9 +2154,9 @@ namespace UPRO.View
 
             return true;
         }
+        #endregion
 
-
-        // 파일대화상자에서 파일명 가져오기
+        #region Method
         private string GetFilePath()
         {
             OpenFileDialog od = new OpenFileDialog
@@ -2312,7 +2193,6 @@ namespace UPRO.View
             return null; // 사용자가 취소하거나 파일을 선택하지 않은 경우
         }
 
-
         private void LoadFile(string filename)
         {
             pe = new PEReader(filename);
@@ -2320,6 +2200,126 @@ namespace UPRO.View
             uint timeDateStamp = pe.NtHeader.FileHeader.TimeDateStamp;
             DateTime? buildDate = epoch.AddSeconds(timeDateStamp).ToLocalTime();
             TxbClient.Text = buildDate.ToString();
+        }
+
+        public void ReadItems()
+        {
+            Items = new ObservableCollection<Item>
+            {
+                new Item { Id = 0, Recommend = true, Group = 0, IsToggled = 0, Name = "@ Bug Fix(Recommended)", OnToggle = () => FixChatAtBugFix(0,"@ Bug Fix") },
+                new Item { Id = 1, Recommend = false, Group = 0, IsToggled = 0, Name = "Add Close Button", OnToggle = () => AddCloseButton(1,"Add Close Button") },
+                new Item { Id = 2, Recommend = false, Group = 0, IsToggled = 0, Name = "Allow Space In Guild Name", OnToggle = () => AllowSpaceInGuildName(2,"Allow Space In Guild Name") },
+                new Item { Id = 3, Recommend = false, Group = 1, IsToggled = 0, Name = "Chat Flood Allow", OnToggle = () => ChatFloodRemoveLimit(3,"Chat Flood Allow") },
+                new Item { Id = 4, Recommend = false, Group = 1, IsToggled = 0, Name = "Chat Flood Remove Limit", OnToggle = () => ChatFloodRemoveLimit(4,"Chat Flood Remove Limit") },
+                new Item { Id = 5, Recommend = false, Group = 0, IsToggled = 0, Name = "Custom Window Title", OnToggle = () => CustomWindowTitle(5, "Custom Window Title") }, // 0x660
+                 new Item { Id = 6, Recommend = false, Group = 0, IsToggled = 0, Name = "Change MVP Hp Bar Size", OnToggle = () => ChangeBossHpBarSize(6, "Change MVP Hp Bar Size") }, //0xB00
+                new Item { Id = 7, Recommend = false, Group = 4, IsToggled = 0, Name = "Change Walk Delay", OnToggle = () => DisableWalkDelay(7,"Change Walk Delay") },
+                new Item { Id = 8, Recommend = false, Group = 4, IsToggled = 0, Name = "Disable Walk Delay", OnToggle = () => DisableWalkDelay(8,"Disable Walk Delay") },
+                new Item { Id = 9, Recommend = true, Group = 0, IsToggled = 0, Name = "Disable 1rag1 Params(Recommended)", OnToggle = () => Disable1rag1Params(9,"Disable 1rag1 Params") },
+                new Item { Id = 10, Recommend = false, Group = 0, IsToggled = 0, Name = "Disable 4Letter Character Limit", OnToggle = () => Disable4LetterLimit(10,"Disable 4Letter Character Limit") },
+                new Item { Id = 11, Recommend = false, Group = 0, IsToggled = 0, Name = "Disable 4Letter Password Limit", OnToggle = () => Disable4LetterLimit(11,"Disable 4Letter Password Limit") },
+                new Item { Id = 12, Recommend = false, Group = 0, IsToggled = 0, Name = "Disable 4Letter UserName Limit", OnToggle = () => Disable4LetterLimit(12,"Disable 4Letter UserName Limit") },
+                new Item { Id = 13, Recommend = true, Group = 0, IsToggled = 0, Name = "Disalbe Filename Check(Recommended)", OnToggle = () => DisableFilenameCHeck(13,"Disalbe Filename Check") },
+                new Item { Id = 14, Recommend = false, Group = 0, IsToggled = 0, Name = "Disable Indoor RSW", OnToggle = () => DisableIndoorRSW(14,"Disable Indoor RSW") },
+                new Item { Id = 15, Recommend = false, Group = 0, IsToggled = 0, Name = "Disalbe Swear Filter", OnToggle = () => DisableSwearFilter(15,"Disalbe Swear Filter") },
+                new Item { Id = 16, Recommend = false, Group = 0, IsToggled = 0, Name = "Enable 44khz Audio", OnToggle = () => Enable44khzAudio(16,"Enable 44khz Audio") },
+                new Item { Id = 17, Recommend = false, Group = 0, IsToggled = 0, Name = "Enable DNS Suport", OnToggle = () => EnableDNSSuport(17,"Enable DNS Suport") }, // 0x800
+                new Item { Id = 18, Recommend = true, Group = 0, IsToggled = 0, Name = "Enable Multiple GRF(Recommended)", OnToggle = () => EnableMultipleGRF(18,"Enable Multiple GRF") }, //0x700
+                new Item { Id = 19, Recommend = false, Group = 2, IsToggled = 0, Name = "Fix Camera Angles(Custom)", OnToggle = () => FixCameraAngles(19,"Fix Camera Angles(Custom") },
+                new Item { Id = 20, Recommend = false, Group = 2, IsToggled = 0, Name = "Fix Camera Angles(Full)", OnToggle = () => FixCameraAngles(20,"Fix Camera Angles(Full") },
+                new Item { Id = 21, Recommend = false, Group = 2, IsToggled = 0, Name = "Fix Camera Angles(Less)", OnToggle = () => FixCameraAngles(21,"Fix Camera Angles(Less)") },
+                new Item { Id = 22, Recommend = false, Group = 2, IsToggled = 0, Name = "Fix Camera Angles(Recommended)", OnToggle = () => FixCameraAngles(22,"Fix Camera Angles(Recommended)") },
+                new Item { Id = 23, Recommend = false, Group = 0, IsToggled = 0, Name = "Fix NPC Dialog Scroll", OnToggle = () => FixNpcDialogScroll(23,"Fix NPC Dialog Scroll") },
+                new Item { Id = 24, Recommend = false, Group = 0, IsToggled = 0, Name = "Increase Map Quality", OnToggle = () => IncreaseMapQuality(24,"Increase Map Quality") },
+                new Item { Id = 25, Recommend = false, Group = 3, IsToggled = 0, Name = "Increase Zoom Out 25%", OnToggle = () => IncreaseZoomOut(25, "Increase Zoom Out 25%") },
+                new Item { Id = 26, Recommend = false, Group = 3, IsToggled = 0, Name = "Increase Zoom Out 50%", OnToggle = () => IncreaseZoomOut(26, "Increase Zoom Out 50%") },
+                new Item { Id = 27, Recommend = false, Group = 3, IsToggled = 0, Name = "Increase Zoom Out 75%", OnToggle = () => IncreaseZoomOut(27, "Increase Zoom Out 75%") },
+                new Item { Id = 28, Recommend = false, Group = 3, IsToggled = 0, Name = "Increase Zoom Out Max", OnToggle = () => IncreaseZoomOut(28, "Increase Zoom Out Max") },
+                new Item { Id = 29, Recommend = false, Group = 3, IsToggled = 0, Name = "Increase Zoom Out Custom", OnToggle = () => IncreaseZoomOut(29, "Increase Zoom Out Custom") },
+                new Item { Id = 30, Recommend = true, Group = 0, IsToggled = 0, Name = "Read Data Folder First(Recommended)", OnToggle = () => ReadDataFolderFirst(30,"Read Data Folder First") },
+                new Item { Id = 31, Recommend = true, Group = 0, IsToggled = 0, Name = "Restore Clientinfo.xml & No Hard Coded Address & Port(Recommended)", OnToggle = () => RestoreClientinfoxmlNoHardCodedAddress(31,"Restore Clientinfo.xml & No Hard Coded Address & Port") }, //0x100
+                new Item { Id = 32, Recommend = true, Group = 0, IsToggled = 0, Name = "Restore Old Login Packet(Recommended)", OnToggle = () => RestoreOldLoginPacket(32,"Restore Old Login Packet") },
+                new Item { Id = 33, Recommend = false, Group = 0, IsToggled = 0, Name = "Restore Roulette", OnToggle = () => RestoreRoulette(33,"Restore Roulette") }, // 0x900
+                new Item { Id = 34, Recommend = true, Group = 0, IsToggled = 0, Name = "Remove OTP Login(Recommended)", OnToggle = () => RemoveOTPLogin(34,"Restore Old Login Packet") },
+                new Item { Id = 35, Recommend = false, Group = 0, IsToggled = 0, Name = "Show Replay Button", OnToggle = () => ShowReplayButton(35,"Show Replay Button") }, // 0xA00
+                new Item { Id = 36, Recommend = false, Group = 0, IsToggled = 0, Name = "Skip License Screen", OnToggle = () => SkipLicenseScreen(36, "Skip License Screen") },
+                new Item { Id = 37, Recommend = false, Group = 0, IsToggled = 0, Name = "Set Hardcoded Server ip", OnToggle = () => SetHardcodedServerip(37, "Set Hardcoded Server ip") },
+                new Item { Id = 38, Recommend = true, Group = 0, IsToggled = 0, Name = "Disable Help Message", OnToggle = () => DisableHelpMsg(38,"Disable Help Message") }
+            };
+
+            //var sortedItems = Items.OrderBy(item => item.Name).ToList();  //정렬상태로 보여 줄때 Items 대신 sortedItmes를 사용
+            filteredItems = new ObservableCollection<Item>(Items);
+            DgdItem.ItemsSource = filteredItems;
+
+            PatchCount = 0;
+            TxbPatches.Text = "0";
+        }
+
+        private void ShowErrorWindow(string title, string message)
+        {
+            var parentWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
+            var errorWindow = new ErrorWindow(title, message)
+            {
+                Owner = parentWindow
+            };
+            errorWindow.ShowDialog();
+        }
+
+        private void InformWindow(string message)
+        {
+            var parentWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
+            var informWindow = new InformWindow(message)
+            {
+                Owner = parentWindow
+            };
+            informWindow.ShowDialog();
+        }
+
+        private string OneTextBoxWindow(string title, string message, string val)
+        {
+            var parentWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
+            var oneTextBox = new OneTextBox(title, message, val)
+            {
+                Owner = parentWindow
+            };
+            if (oneTextBox.ShowDialog() == true)
+            {
+                return oneTextBox.Result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private (string, string) TwoTextBoxWindow(string title, string message, string target1, string target2, string val1, string val2)
+        {
+            var parentWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
+            var twoTextBox = new TwoTextBox(title, message, target1, target2, val1, val2)
+            {
+                Owner = parentWindow
+            };
+            if (twoTextBox.ShowDialog() == true)
+            {
+                return (twoTextBox.Result1, twoTextBox.Result2);
+            }
+            else
+            {
+                return (null, null);
+            }
+        }
+        #endregion
+
+        #region event handler
+        private async void URPO_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(100);
+            PopupWindow popup = new PopupWindow
+            {
+                Owner = this,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner // 부모 창 기준으로 중앙에 띄움
+            };
+            popup.ShowDialog(); // 모달 팝업 창 실행
         }
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
@@ -2336,8 +2336,6 @@ namespace UPRO.View
                 BtnSaveProfile.IsEnabled = true;
             }
         }
-
-
 
         private void CloseWindowButton_Click(object sender, RoutedEventArgs e)
         {
@@ -2397,8 +2395,6 @@ namespace UPRO.View
             }
         }
 
-
-
         private void BtnRecommended_Click(object sender, RoutedEventArgs e)
         {
             var filteredItems = Items.Where(i => i.Recommend == true);
@@ -2409,7 +2405,6 @@ namespace UPRO.View
             }
             InformWindow("The recommended patch selection is complete.");
         }
-
 
         private void BtnLoadProfile_Click(object sender, RoutedEventArgs e)
         {
@@ -2459,7 +2454,6 @@ namespace UPRO.View
             }
             InformWindow("Profile writing is complete.");
         }
-
 
         private void DgdItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -2636,5 +2630,6 @@ namespace UPRO.View
                 DgdItem.SelectedItem = null; // 선택 해제로 같은 행 재 선택가능하게 초기화
             }
         }
+        #endregion
     }
 }
