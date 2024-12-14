@@ -1,0 +1,83 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Toggle_OnDrawingImage -->
+    <DrawingImage x:Key="OnDrawingImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V256 H256 V0 H0 Z">
+                <DrawingGroup Opacity="1" Transform="2.81,0,0,2.81,1.4065934065934,1.4065934065934">
+                    <GeometryDrawing Brush="#2c3e50" Geometry="F1 M256,256z M0,0z M22.904,38.064L19.518,38.064C18.496,38.064,17.665,38.895,17.665,39.917L17.665,50.082C17.665,51.104,18.496,51.936,19.518,51.936L22.904,51.936C23.926,51.936,24.757,51.105,24.757,50.082L24.757,39.917C24.757,38.896,23.926,38.064,22.904,38.064z" />
+                    <GeometryDrawing Brush="#34495e" Geometry="F1 M256,256z M0,0z M70.22,25.22L19.78,25.22C8.856,25.22,0,34.076,0,45L0,45C0,55.924,8.856,64.78,19.78,64.78L70.22,64.78C81.144,64.78,90,55.924,90,45L90,45C90,34.076,81.144,25.22,70.22,25.22z M28.757,50.082C28.757,53.31,26.132,55.936,22.904,55.936L19.518,55.936C16.29,55.936,13.665,53.31,13.665,50.082L13.665,39.917C13.665,36.689,16.29,34.064,19.518,34.064L22.904,34.064C26.132,34.064,28.757,36.689,28.757,39.917L28.757,50.082z M47.665,53.936C47.665,54.83 47.072,55.615 46.213,55.86 46.031,55.912 45.847,55.936 45.665,55.936 44.986,55.936 44.337,55.589 43.966,54.991L36.573,43.08 36.573,53.936C36.573,55.04 35.677,55.936 34.573,55.936 33.469,55.936 32.573,55.04 32.573,53.936L32.573,36.064C32.573,35.17 33.165,34.386 34.025,34.141 34.884,33.894 35.801,34.25 36.273,35.01L43.666,46.921 43.666,36.064C43.666,34.96 44.562,34.064 45.666,34.064 46.771,34.064 47.666,34.96 47.666,36.064L47.666,53.936z M69.202,57.784L69.202,57.784C62.142,57.784 56.418,52.06 56.418,45 56.418,37.94 62.142,32.216 69.202,32.216L69.202,32.216C76.262,32.216 81.986,37.94 81.986,45 81.986,52.06 76.262,57.784 69.202,57.784z" />
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <!-- Toggle_OffDrawingImage -->
+    <DrawingImage x:Key="OffDrawingImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V256 H256 V0 H0 Z">
+                <DrawingGroup Opacity="1" Transform="2.81,0,0,2.81,1.4065934065934,1.4065934065934">
+                    <GeometryDrawing Brush="#bdc3c7" Geometry="F1 M256,256z M0,0z M70.22,25.22L19.78,25.22C8.856,25.22,0,34.076,0,45L0,45C0,55.924,8.856,64.78,19.78,64.78L70.22,64.78C81.144,64.78,90,55.924,90,45L90,45C90,34.076,81.144,25.22,70.22,25.22z M20.798,57.784L20.798,57.784C13.738,57.784 8.014,52.06 8.014,45 8.014,37.94 13.738,32.216 20.798,32.216L20.798,32.216C27.858,32.216 33.582,37.94 33.582,45 33.582,52.06 27.859,57.784 20.798,57.784z M53.504,49.944C53.504,53.114,50.925,55.693,47.755,55.693L44.46,55.693C41.29,55.693,38.711,53.114,38.711,49.944L38.711,40.055C38.711,36.885,41.29,34.306,44.46,34.306L47.754,34.306C50.924,34.306,53.503,36.885,53.503,40.055L53.503,49.944z M66.93,38.307L61.223,38.307 61.223,43 64.264,43C65.368,43 66.264,43.896 66.264,45 66.264,46.104 65.368,47 64.264,47L61.223,47 61.223,53.693C61.223,54.797 60.327,55.693 59.223,55.693 58.119,55.693 57.223,54.797 57.223,53.693L57.223,36.307C57.223,35.203,58.119,34.307,59.223,34.307L66.93,34.307C68.034,34.307 68.93,35.203 68.93,36.307 68.93,37.411 68.034,38.307 66.93,38.307z M80.97,38.307L75.262,38.307 75.262,43 78.304,43C79.408,43 80.304,43.896 80.304,45 80.304,46.104 79.408,47 78.304,47L75.262,47 75.262,53.693C75.262,54.797 74.366,55.693 73.262,55.693 72.158,55.693 71.262,54.797 71.262,53.693L71.262,36.307C71.262,35.203,72.158,34.307,73.262,34.307L80.97,34.307C82.074,34.307 82.97,35.203 82.97,36.307 82.97,37.411 82.074,38.307 80.97,38.307z" />
+                    <GeometryDrawing Brush="#bdc3c7" Geometry="F1 M256,256z M0,0z M47.755,38.307L44.46,38.307C43.496,38.307,42.711,39.092,42.711,40.056L42.711,49.945C42.711,50.91,43.495,51.694,44.46,51.694L47.754,51.694C48.719,51.694,49.503,50.91,49.503,49.945L49.503,40.056C49.504,39.091,48.72,38.307,47.755,38.307z" />
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="ErrorDrawingImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V316.92 H320 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup Opacity="1">
+                        <GeometryDrawing Brush="#a5acb9" Geometry="F1 M320,316.92z M0,0z M287.63,0L32.37,0A32.37,32.37,0,0,0,0,32.37L0,227.63A32.37,32.37,0,0,0,32.37,260L104.67,260 104.67,309.7A12.72,12.72,0,0,0,118.31,316.7L193.67,260 287.67,260A32.37,32.37,0,0,0,320,227.63L320,32.37A32.37,32.37,0,0,0,287.63,0z" />
+                        <GeometryDrawing Brush="#1E3050">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry RadiusX="9.93" RadiusY="9.93" Rect="145.5,45,29,97" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                        <GeometryDrawing Brush="#1E3050">
+                            <GeometryDrawing.Geometry>
+                                <EllipseGeometry RadiusX="19.5" RadiusY="19.5" Center="160,174.5" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <Style x:Key="ErrorImageStyle" TargetType="Image">
+        <!-- 기본 설정 -->
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="100" />
+        <Setter Property="Stretch" Value="Uniform" />
+        <!-- DrawingImage를 Source로 설정 -->
+        <Setter Property="Source" Value="{StaticResource ErrorDrawingImage}" />
+    </Style>
+
+    <DrawingImage x:Key="icoDrawingImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V512 H576 V0 H0 Z">
+                <DrawingGroup.Transform>
+                    <TranslateTransform X="0" Y="0.07500004768371582" />
+                </DrawingGroup.Transform>
+                <DrawingGroup Opacity="1">
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M576,512z M0,0z M434.3,312.9L402.3,344.9C400.8,346.4,400,348.4,400,350.5L400,464 48,464 48,112 289.5,112C291.7,112,293.7,111.2,295.2,109.7L327.2,77.7C332.2,72.6,328.6,64,321.5,64L48,64C21.5,64,0,85.5,0,112L0,464C0,490.5,21.5,512,48,512L400,512C426.5,512,448,490.5,448,464L448,318.6C448,311.4,439.3,307.9,434.3,312.9z" />
+                    <GeometryDrawing Brush="#FFFFFF00" Geometry="F1 M576,512z M0,0z M558.8,60.3L515.6,17.1C492.8,-5.8,455.8,-5.8,432.9,17.1L170.3,279.7 160.3,370.1C157.4,396.5,179.7,418.6,205.9,415.7L296.3,405.7 558.9,143.1 558.9,143.1C581.7,120.3,581.7,83.2,558.8,60.3z M274.2,359.8L208.9,367.1 216.2,301.8 402,115.9 460.1,174 274.2,359.8z M525,109.2L494.1,140.1 436,82 466.9,51.1C470.9,47,477.6,47,481.7,51.1L524.9,94.3C529,98.4,529,105,525,109.2z" />
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <Style x:Key="IconImageStyle" TargetType="Image">
+        <!-- 기본 설정 -->
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="100" />
+        <Setter Property="Stretch" Value="Uniform" />
+        <!-- DrawingImage를 Source로 설정 -->
+        <Setter Property="Source" Value="{StaticResource icoDrawingImage}" />
+    </Style>
+
+
+</ResourceDictionary>

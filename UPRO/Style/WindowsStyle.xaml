@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- 윈도우크롬 스타일 -->
+    <Style TargetType="{x:Type Window}" x:Key="CustomWindowStyle">
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome CaptionHeight="20"
+                       CornerRadius="0"
+                       GlassFrameThickness="1"
+                       ResizeBorderThickness="5,5,5,5"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

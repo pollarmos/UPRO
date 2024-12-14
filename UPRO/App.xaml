@@ -1,0 +1,16 @@
+﻿<Application x:Class="UPRO.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:UPRO"
+             >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/UPRO;component/Style/WindowsStyle.xaml"/>
+                <ResourceDictionary Source="/UPRO;component/Style/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="/UPRO;component/Style/DataGridStyle.xaml"/>
+                <ResourceDictionary Source="/UPRO;component/Style/ToggleButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
