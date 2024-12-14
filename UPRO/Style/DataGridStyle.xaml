@@ -47,7 +47,6 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
         <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
-        
         <Setter Property="SelectionUnit" Value="FullRow"/>
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="AutoGenerateColumns" Value="False" />
