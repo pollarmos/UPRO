@@ -40,6 +40,7 @@ namespace UPRO.View
             BtnSaveProfile.IsEnabled = false;
         }
 
+
         #region Patch Method
         private bool FixChatAtBugFix(int id, string name)
         {
