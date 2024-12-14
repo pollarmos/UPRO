@@ -1,8 +1,11 @@
-# AssemblyInfo.cs 경로 설정
-$assemblyInfoPath = "D:\PROJECT\Client\UPRO\UPRO\Properties\AssemblyInfo.cs"
+# 현재 스크립트 파일의 경로를 기준으로 상대 경로 설정
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
-# version.json 경로 설정
-$versionJsonPath = "D:\PROJECT\Client\UPRO\UPRO\Update\version.json"
+# AssemblyInfo.cs 경로 설정 (Update 폴더에서 상위 두 단계로 이동)
+$assemblyInfoPath = Join-Path $scriptDir "..\Properties\AssemblyInfo.cs"
+
+# version.json 경로 설정 (Update 폴더 내 파일)
+$versionJsonPath = Join-Path $scriptDir "version.json"
 
 # 버전 생성 (Major.Minor.Year.DayOfYear)
 $major = 1
